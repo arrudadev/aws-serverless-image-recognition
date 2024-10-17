@@ -1,0 +1,21 @@
+{
+  "name": "aws-serverless-image-recognition",
+  "version": "1.0.0",
+  "packageManager": "yarn@4.5.0",
+  "scripts": {
+    "dev": "serverless offline"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1691.0",
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/aws-lambda": "^8.10.145",
+    "eslint": "8.56.0",
+    "serverless": "3.33.0",
+    "serverless-esbuild": "^1.54.4",
+    "serverless-offline": "^14.3.3",
+    "typescript": "^5.6.3"
+  }
+}

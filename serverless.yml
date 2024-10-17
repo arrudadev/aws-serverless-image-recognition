@@ -1,0 +1,36 @@
+org: arrudadev
+app: aws-serverless-image-recognition
+service: aws-serverless-image-recognition
+frameworkVersion: "3.33.0"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - rekognition:DetectLabels
+          Resource: "*"
+        - Effect: Allow
+          Action:
+            - translate:TranslateText
+          Resource: "*"
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+package:
+  individually: true
+  excludeDevDependencies: true
+
+functions:
+  recognize-image:
+    handler: src/functions/recognize-image/handler.handler
+    events:
+      - httpApi:
+          path: /recognize-image
+          method: get
